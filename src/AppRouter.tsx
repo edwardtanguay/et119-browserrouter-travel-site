@@ -11,7 +11,7 @@ export const AppRouter = () => {
 			<Route path="/team" element={<PageTeam />}>
 				<Route path=":id" element={<PageTeam/>}/>
 			</Route>
-			<Route path="/destinations" element={<PageDestinations />}/>
+			<Route path="/destinations/*" element={<PageDestinations />}/>
 			<Route path="/planner" element={<PagePlanner />}/>
 			<Route path="/" element={<PageWelcome />}/>
 			{/* <Route index element={<Navigate to="/welcome" replace />}/> */}
