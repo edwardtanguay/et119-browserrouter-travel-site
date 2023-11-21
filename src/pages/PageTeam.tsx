@@ -1,9 +1,16 @@
 import { useParams } from "react-router-dom";
 import { Employee } from "../components/Employee";
 import employees from "../data/employees.json";
+import { IEmployee } from "../interfaces";
 
 export const PageTeam = () => {
 	const { id } = useParams();
+	let employee = {} as IEmployee;
+	if (id) {
+		employee = employees.find(
+			(m) => m.employeeID === Number(id)
+		) as IEmployee;
+	}
 	return (
 		<>
 			{!id ? (
@@ -19,7 +26,13 @@ export const PageTeam = () => {
 					})}
 				</>
 			) : (
-					<p>single employee with id {id}</p>
+				<>
+					{employee ? (
+						<Employee employee={employee} highlighted={false} />
+					) : (
+						<p>Employee not found.</p>
+					)}
+				</>
 			)}
 		</>
 	);
