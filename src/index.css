@@ -2,11 +2,11 @@
 @tailwind components;
 @tailwind utilities;
 
-/* @layer base {
-	nav a.active {
-		@apply text-red-500;	
+@layer base {
+	section.page a {
+		@apply underline;
 	}
-} */
+}
 
 nav a.active {
 	color: brown;
