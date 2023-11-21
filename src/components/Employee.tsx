@@ -35,11 +35,15 @@ export const Employee = ({ employee, highlighted, single = false }: IProps) => {
 					}`}
 					key={employee.employeeID}
 				>
-					<NavLink to={`team/${employee.employeeID}`}>
+						<div className="rounded">
+					<NavLink  to={`team/${employee.employeeID}`}>
 					<img
-						className="w-24 h-fit rounded"
+					
+						
 						src={`../images/employees/employee_${employee.employeeID}.jpg`}
-					/></NavLink>
+							/>
+						</NavLink>
+					</div>
 					<div>
 						<p className="font-semibold">
 							{employee.firstName} {employee.lastName}
