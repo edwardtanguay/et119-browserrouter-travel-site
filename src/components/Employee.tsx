@@ -1,18 +1,53 @@
+import { NavLink } from "react-router-dom";
 import { IEmployee } from "../interfaces";
 
-export const Employee = ({ employee, highlighted }: {employee: IEmployee, highlighted: boolean}) => {
+interface IProps {
+	employee: IEmployee;
+	highlighted: boolean;
+	single?: boolean;
+}
+
+export const Employee = ({ employee, highlighted, single = false }: IProps) => {
 	return (
-		<div className={`flex mb-3 gap-3 ${highlighted ? 'border-orange-500 border-4' : ''}`} key={employee.employeeID}>
-			<img
-				className="w-24 h-fit rounded"
-				src={`../images/employees/employee_${employee.employeeID}.jpg`}
-			/>
-			<div>
-				<p className="font-semibold">
-					{employee.firstName} {employee.lastName}
-				</p>
-				<p className="text-xs">{employee.notes}</p>
-			</div>
-		</div>
+		<>
+			{single ? (
+				<div
+					className={`flex mb-3 gap-3 ${
+						highlighted ? "border-orange-500 border-4" : ""
+					}`}
+					key={employee.employeeID}
+				>
+					<img
+						className="w-36 h-fit rounded"
+						src={`../images/employees/employee_${employee.employeeID}.jpg`}
+					/>
+					<div>
+						<p className="font-semibold">
+							{employee.firstName} {employee.lastName}
+						</p>
+						<p className="text-xs">{employee.notes}</p>
+					</div>
+				</div>
+			) : (
+				<div
+					className={`flex mb-3 gap-3 ${
+						highlighted ? "border-orange-500 border-4" : ""
+					}`}
+					key={employee.employeeID}
+				>
+					<NavLink to={`team/${employee.employeeID}`}>
+					<img
+						className="w-24 h-fit rounded"
+						src={`../images/employees/employee_${employee.employeeID}.jpg`}
+					/></NavLink>
+					<div>
+						<p className="font-semibold">
+							{employee.firstName} {employee.lastName}
+						</p>
+						<p className="text-xs">{employee.notes}</p>
+					</div>
+				</div>
+			)}
+		</>
 	);
 };

@@ -21,6 +21,7 @@ export const PageTeam = () => {
 								employee={employee}
 								highlighted={false}
 								key={employee.employeeID}
+
 							/>
 						);
 					})}
@@ -28,7 +29,7 @@ export const PageTeam = () => {
 			) : (
 				<>
 					{employee ? (
-						<Employee employee={employee} highlighted={false} />
+						<Employee employee={employee} highlighted={false} single={true} />
 					) : (
 						<p>Employee not found.</p>
 					)}

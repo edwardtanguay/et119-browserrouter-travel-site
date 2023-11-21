@@ -1,3 +1,4 @@
-- .. make it possible to show single employee with e.g. team/4
-	- handle id not found
-- make images clickable and show more information
+- x make it possible to show single employee with e.g. team/4
+	- x handle id not found
+- .. make images clickable and show more information
+- div from employee in flex-col
