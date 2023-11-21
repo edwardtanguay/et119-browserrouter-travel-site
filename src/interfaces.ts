@@ -3,4 +3,7 @@ export interface IEmployee {
 	firstName: string;
 	lastName: string;
 	notes: string;
+	address: {
+		phone: string;
+	}
 }
