@@ -6,7 +6,7 @@ export const PageTeam = () => {
 		<>
 			{employees.map((employee) => {
 				return (
-					<Employee employee={employee} />
+					<Employee employee={employee} highlighted={false} />
 				);
 			})}
 		</>
