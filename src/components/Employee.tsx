@@ -1,4 +1,4 @@
-import { NavLink } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { IEmployee } from "../interfaces";
 
 interface IProps {
@@ -7,11 +7,13 @@ interface IProps {
 	single?: boolean;
 }
 
-const handleImageClick = () => {
-	alert("nn");
-};
-
 export const Employee = ({ employee, highlighted, single = false }: IProps) => {
+	const navigate = useNavigate();
+
+	const handleImageClick = (employee: IEmployee) => {
+		navigate(`/team/${employee.employeeID}`);
+	};
+
 	return (
 		<>
 			{single ? (
@@ -41,7 +43,7 @@ export const Employee = ({ employee, highlighted, single = false }: IProps) => {
 					key={employee.employeeID}
 				>
 					<img
-						onClick={handleImageClick}
+						onClick={() => handleImageClick(employee)}
 						className="w-20 h-fit cursor-pointer"
 						src={`../images/employees/employee_${employee.employeeID}.jpg`}
 					/>
