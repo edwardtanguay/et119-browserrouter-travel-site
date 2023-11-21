@@ -7,6 +7,10 @@ interface IProps {
 	single?: boolean;
 }
 
+const handleImageClick = () => {
+	alert("nn");
+};
+
 export const Employee = ({ employee, highlighted, single = false }: IProps) => {
 	return (
 		<>
@@ -37,7 +41,8 @@ export const Employee = ({ employee, highlighted, single = false }: IProps) => {
 					key={employee.employeeID}
 				>
 					<img
-						className="w-20 h-fit"
+						onClick={handleImageClick}
+						className="w-20 h-fit cursor-pointer"
 						src={`../images/employees/employee_${employee.employeeID}.jpg`}
 					/>
 					<div>
